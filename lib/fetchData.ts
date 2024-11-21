@@ -1,5 +1,9 @@
 export async function fetchData() {
-  const apiUrl = process.env.NEXT_PUBLIC_API_URL;
+  const temp = true;
+  const apiUrl = temp
+    ? 'https://dua-ruqah-production.up.railway.app'
+    : 'http://localhost:3001';
+
   const res = await fetch(`${apiUrl}/categories`, {
     next: { revalidate: 86400 },
   });
