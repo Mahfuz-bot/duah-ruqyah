@@ -1,5 +1,6 @@
 export async function fetchData() {
-  const res = await fetch("http://localhost:3001/categories", {
+  const apiUrl = process.env.NEXT_PUBLIC_API_URL;
+  const res = await fetch(`${apiUrl}/categories`, {
     next: { revalidate: 86400 },
   });
 
